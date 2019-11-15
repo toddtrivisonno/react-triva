@@ -27,13 +27,13 @@ class Cover extends React.Component {
    }
 
    handleSubmit(event) {
-      console.log(this.state);
+      // console.log(this.state);
       event.preventDefault();
       Axios.post('http://127.0.0.1:8000/api/login', this.state)
          .then(res => {
            this.setState({token: res.data.token});
            localStorage.setItem('token', res.data.token);
-            console.log(this.state);
+            // console.log(this.state);
             this.props.tokenFunction(this.state.token);
          })
    }
@@ -56,7 +56,7 @@ class Cover extends React.Component {
                      </div>
                      <div className="checkbox mb-3">
                         <label>
-                           <input type="checkbox" value="remember-me" />Remember me
+                           <input type="checkbox" value="remember-me" className="mr-1" />Remember me
                         </label>
                      </div>
                      <button className="btn btn-lg btn-primary btn-block" name="submit" type="submit" onSubmit={this.handleSubmit} >Log In</button>
